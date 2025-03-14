@@ -1,3 +1,4 @@
+import os
 import argparse
 import pandas as pd
 
@@ -119,8 +120,8 @@ def show_confidence(counts_dict, confidence_dict, num=10, ID_2_STANDID_DICT=None
     return None
 
 def main(args):
-    classfication_results = args.classfication_results
-    regression_results = args.regression_results
+    classfication_results = args.Classification
+    regression_results = args.Regression
     result_path = "{}/result.csv".format(args.save)
     cutoff = args.cutoff
 
@@ -179,7 +180,7 @@ def main(args):
 
     print(len(t_regression))
 
-    if os.path.exist(result_path):
+    if os.path.exists(result_path):
         df = pd.DataFrame({'smiles': t_regression, 'pred': t_regression_pred, 'ID': t_regression_ID,
                            'STAND_ID': t_regression_STAND_ID, 'LABEL': t_regression_LABEL})
         df.to_csv(result_path, sep='\t')
