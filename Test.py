@@ -21,7 +21,7 @@ def main(args):
 
         test_results.to_csv("{}/{}_results.csv".format(args.out, task), index=False, sep=",")
 
-    convert_results("{}/{}_results.csv".format(args.out, "classification"), "{}/{}_results.csv".format(args.out, "classification"), args.data)
+    convert_results("{}/{}_results.csv".format(args.out, "classification"), "{}/{}_results.csv".format(args.out, "regression"), args.data)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
